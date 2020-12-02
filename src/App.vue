@@ -1,28 +1,53 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <!-- {{msg}} -->
+
+    <!-- pass props to Todos component -->
+    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import Todos from './components/Todos'
 
 export default {
   name: 'App',
+  //import components
   components: {
-    HelloWorld
+    // HelloWorld
+    Todos
+  },
+  data(){
+    return{
+      msg: 'Hi asdf',
+      todos: [
+        {
+          id: 1,
+          title: 'hi 1',
+          completed: false
+        },
+        {
+          id: 2,
+          title: 'hi 2',
+          completed: false
+        },
+        {
+          id: 3,
+          title: 'hi 3',
+          completed: false
+        },
+      ]
+    } 
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+  #app{
+    border: solid red 1px;
+  }
+
+
 </style>
